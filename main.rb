@@ -8,14 +8,26 @@ class LinkedList
   end
 
   def append(value)
-    if @head == nil
-      @head = Node.new(value)
-      @head = @tail
+    new_node = Node.new(value)
+    if @head.nil?
+      @head = @tail = new_node
     else
-      @tail.next_node = Node.new(value)
-      @tail = @tail.next_node
+      @tail.next = new_node
+      @tail = new_node
     end
     @size += 1
+  end
+
+  def to_s
+    result = []
+    current = @head
+
+    while current && current.next_node != nil
+      result << current.value
+      current = current.next_node
+    end
+    result << current.value if current
+    return result
   end
 end
 
@@ -30,3 +42,4 @@ end
 
 test = LinkedList.new
 test.append(5)
+p test
