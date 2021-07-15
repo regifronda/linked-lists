@@ -11,15 +11,29 @@ class LinkedList
 
   def append(value)
     new_node = Node.new(value)
-    p "@head before if: #{@head}" 
-    if @head == nil
-      @head = @tail = new_node
-    else
-      @tail.next = new_node
-      @tail = new_node
 
+    puts "@head before if-else: "
+    p @head
+
+    if @head == nil
+
+      puts "passed through if statement"
+      @head = @tail = new_node
+
+      p "@head:"
       p @head
+    else
+
+      puts "passed through else"
+      
+      old_tail = @tail
+      @tail = new_node
+      old_tail.next_node = @tail
+      
     end
+    p "@head after if-else statement:"
+    p @head
+
     @size += 1
   end
 
@@ -48,5 +62,5 @@ end
 
 test = LinkedList.new
 test.append(5)
-
+test.append(8)
 test.to_s
