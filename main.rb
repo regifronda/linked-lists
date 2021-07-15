@@ -1,3 +1,5 @@
+require 'pry'
+
 class LinkedList
   attr_accessor :head, :tail, :size
 
@@ -9,11 +11,14 @@ class LinkedList
 
   def append(value)
     new_node = Node.new(value)
-    if @head.nil?
+    p "@head before if: #{@head}" 
+    if @head == nil
       @head = @tail = new_node
     else
       @tail.next = new_node
       @tail = new_node
+
+      p @head
     end
     @size += 1
   end
@@ -27,7 +32,8 @@ class LinkedList
       current = current.next_node
     end
     result << current.value if current
-    return result
+    puts result.join(', ')
+    #return result
   end
 end
 
@@ -42,4 +48,5 @@ end
 
 test = LinkedList.new
 test.append(5)
-p test
+
+test.to_s
