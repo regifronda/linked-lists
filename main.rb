@@ -21,6 +21,18 @@ class LinkedList
     @size += 1
   end
 
+  def prepend(value)
+    new_node = Node.new(value)
+    if @head == nil
+      @head = @tail = new_node
+    else      
+      old_head = @head
+      @head = new_node
+      @head.next_node = old_head
+    end
+    @size += 1
+  end
+
   def to_s
     result = []
     current = @head
@@ -47,4 +59,6 @@ end
 test = LinkedList.new
 test.append(5)
 test.append(8)
+test.append(9)
+
 test.to_s
