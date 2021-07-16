@@ -46,8 +46,9 @@ class LinkedList
       current = current.next_node
     end
     result << current.value if current
-    puts result.join(', ')
-    #return result
+    result << "nil"
+    puts result.join(' -> ')
+    return result
   end
 end
 
