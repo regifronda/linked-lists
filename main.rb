@@ -52,6 +52,11 @@ class LinkedList
     result_message
   end
 
+  def at(index)
+    linked_list = get_linked_list
+    p linked_list[index]
+  end
+
   def size
     puts @size
     return
@@ -79,7 +84,8 @@ test = LinkedList.new
 test.append(5)
 test.append(8)
 test.prepend(9)
-test.size
 test.to_s
+test.at(1)
+test.size
 test.head
 test.tail
