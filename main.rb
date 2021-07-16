@@ -45,6 +45,11 @@ class LinkedList
     result << "nil"
     puts result.join(' -> ')
   end
+
+  def size
+    puts @size
+    return
+  end
 end
 
 class Node
@@ -59,6 +64,6 @@ end
 test = LinkedList.new
 test.append(5)
 test.append(8)
-test.append(9)
-
+test.prepend(9)
+test.size
 test.to_s
