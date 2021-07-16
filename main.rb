@@ -33,17 +33,23 @@ class LinkedList
     @size += 1
   end
 
-  def to_s
+  def get_linked_list
     result = []
     current = @head
-
     while current && current.next_node != nil
       result << current.value
       current = current.next_node
     end
     result << current.value if current
+    return result
+  end
+  
+  def to_s
+    result = get_linked_list
     result << "nil"
-    puts result.join(' -> ')
+    result_message = result.join(' -> ')
+    puts result_message
+    result_message
   end
 
   def size
