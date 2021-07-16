@@ -11,29 +11,13 @@ class LinkedList
 
   def append(value)
     new_node = Node.new(value)
-
-    puts "@head before if-else: "
-    p @head
-
     if @head == nil
-
-      puts "passed through if statement"
       @head = @tail = new_node
-
-      p "@head:"
-      p @head
-    else
-
-      puts "passed through else"
-      
+    else      
       old_tail = @tail
       @tail = new_node
       old_tail.next_node = @tail
-      
     end
-    p "@head after if-else statement:"
-    p @head
-
     @size += 1
   end
 
@@ -48,7 +32,6 @@ class LinkedList
     result << current.value if current
     result << "nil"
     puts result.join(' -> ')
-    return result
   end
 end
 
