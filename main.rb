@@ -52,7 +52,11 @@ class LinkedList
   end
 
   def head
-    puts @head.value
+    p @head.value
+  end
+
+  def tail
+    p @tail.value
   end
 end
 
@@ -72,3 +76,4 @@ test.prepend(9)
 test.size
 test.to_s
 test.head
+test.tail
