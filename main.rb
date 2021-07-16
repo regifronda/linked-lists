@@ -50,6 +50,10 @@ class LinkedList
     puts @size
     return
   end
+
+  def head
+    puts @head.value
+  end
 end
 
 class Node
@@ -67,3 +71,4 @@ test.append(8)
 test.prepend(9)
 test.size
 test.to_s
+test.head
