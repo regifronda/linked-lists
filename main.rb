@@ -47,7 +47,7 @@ class LinkedList
     @size += 1
   end
 
-  def get_linked_list
+  def get_linked_list_as_array
     result = []
     current = @head
     while current && current.next_node != nil
@@ -59,7 +59,7 @@ class LinkedList
   end
   
   def to_s
-    result = get_linked_list
+    result = get_linked_list_as_array
     result << "nil"
     result_message = result.join(' -> ')
     puts result_message
@@ -67,13 +67,20 @@ class LinkedList
   end
 
   def at(index)
-    linked_list = get_linked_list
+    linked_list = get_linked_list_as_array
     result = linked_list[index]
     puts result
     return result
   end
 
   def contains?(value)
+    linked_list = get_linked_list_as_array
+    result = linked_list.include? value
+    puts result
+    return result
+  end
+  
+  def find(value)
   end
 
   def size
@@ -109,3 +116,4 @@ test.at(1)
 test.size
 test.head
 test.tail
+test.contains?(3)
