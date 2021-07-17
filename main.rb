@@ -73,6 +73,9 @@ class LinkedList
     return result
   end
 
+  def contains?(value)
+  end
+
   def size
     puts @size
     return
