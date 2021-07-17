@@ -21,6 +21,20 @@ class LinkedList
     @size += 1
   end
 
+  def pop
+    return nil if @head == nil
+    current = @head
+    if current == @tail
+      @head = @tail = nil
+      @size = 0
+      return current
+      old_tail = @tail
+      @tail = new_node
+      old_tail.next_node = @tail
+    end
+  end
+  
+
   def prepend(value)
     new_node = Node.new(value)
     if @head == nil
@@ -54,7 +68,9 @@ class LinkedList
 
   def at(index)
     linked_list = get_linked_list
-    p linked_list[index]
+    result = linked_list[index]
+    puts result
+    return result
   end
 
   def size
@@ -81,6 +97,7 @@ class Node
 end
 
 test = LinkedList.new
+test.pop
 test.append(5)
 test.append(8)
 test.prepend(9)
