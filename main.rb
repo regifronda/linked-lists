@@ -28,9 +28,11 @@ class LinkedList
       @head = @tail = nil
       @size = 0
       return current
-      old_tail = @tail
-      @tail = new_node
-      old_tail.next_node = @tail
+      current = nil
+    end
+    while current do
+      new_tail = current
+      current = current.next
     end
   end
 
@@ -47,8 +49,13 @@ class LinkedList
     @size += 1
   end
 
-  def add_at
+  def add_at(value, index)
+    new_node = Node.new(value)
+    if head == nil
+      @head = @tail = @new_node
+    end
   end
+
   def get_linked_list_as_array
     result = []
     current = @head
@@ -117,10 +124,10 @@ class Node
 end
 
 test = LinkedList.new
-test.pop
 test.append(5)
 test.append(8)
 test.prepend(9)
+test.prepend(60)
 test.to_s
 test.at(1)
 test.size
