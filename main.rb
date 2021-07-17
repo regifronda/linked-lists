@@ -33,7 +33,7 @@ class LinkedList
       old_tail.next_node = @tail
     end
   end
-  
+
 
   def prepend(value)
     new_node = Node.new(value)
@@ -47,6 +47,8 @@ class LinkedList
     @size += 1
   end
 
+  def add_at
+  end
   def get_linked_list_as_array
     result = []
     current = @head
@@ -124,6 +126,6 @@ test.at(1)
 test.size
 test.head
 test.tail
-#test.contains?(3)
+test.contains?(3)
 test.find(8)
 test.find(55)
