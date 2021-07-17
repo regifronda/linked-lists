@@ -81,6 +81,14 @@ class LinkedList
   end
   
   def find(value)
+    linked_list = get_linked_list_as_array
+    result = linked_list.index(value)
+    if result == nil
+      puts "nil"
+    else
+      puts result
+      return result
+    end
   end
 
   def size
@@ -116,4 +124,6 @@ test.at(1)
 test.size
 test.head
 test.tail
-test.contains?(3)
+#test.contains?(3)
+test.find(8)
+test.find(55)
