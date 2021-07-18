@@ -1,5 +1,3 @@
-require 'pry'
-
 class LinkedList
   attr_accessor :head, :tail, :size
 
@@ -179,19 +177,3 @@ class Node
     @next_node = next_node
   end
 end
-
-test = LinkedList.new
-test.append(5)
-test.size
-test.append(8)
-test.prepend(9)
-test.prepend(60)
-test.to_s
-test.insert_at(100, 0)
-test.remove_at(2)
-
-test.size
-test.to_s
-test.pop
-test.to_s
-test.at(1)
