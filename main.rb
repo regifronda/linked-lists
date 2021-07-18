@@ -21,6 +21,18 @@ class LinkedList
     @size += 1
   end
 
+  def prepend(value)
+    new_node = Node.new(value)
+    if @head == nil
+      @head = @tail = new_node
+    else      
+      old_head = @head
+      @head = new_node
+      @head.next_node = old_head
+    end
+    @size += 1
+  end
+
   def pop
     return nil if @head == nil
     current = @head
@@ -46,22 +58,13 @@ class LinkedList
     end
   end
 
-  def prepend(value)
+  def insert_at(value, index)
     new_node = Node.new(value)
     if @head == nil
       @head = @tail = new_node
-    else      
-      old_head = @head
-      @head = new_node
-      @head.next_node = old_head
     end
-    @size += 1
-  end
-
-  def add_at(value, index)
-    new_node = Node.new(value)
-    if head == nil
-      @head = @tail = @new_node
+    if index == 0
+      @head = new_node
     end
   end
 
@@ -133,6 +136,8 @@ class Node
 end
 
 test = LinkedList.new
+test.add_at(5, 4)
+test.to_s
 test.append(5)
 test.append(8)
 test.prepend(9)
