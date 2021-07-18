@@ -32,10 +32,19 @@ class LinkedList
     end
     while current do
       new_tail = current
-      current = current.next
+      current = current.next_node
+      if current == @tail
+        @tail = new_tail
+        @tail.next_node = nil
+        @size -= 1
+        if @length == 0
+          @head = @tail = nil
+        end
+        puts current.value
+        return current.value
+      end
     end
   end
-
 
   def prepend(value)
     new_node = Node.new(value)
@@ -128,6 +137,7 @@ test.append(5)
 test.append(8)
 test.prepend(9)
 test.prepend(60)
+test.pop
 test.to_s
 test.at(1)
 test.size
