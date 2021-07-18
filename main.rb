@@ -61,19 +61,24 @@ class LinkedList
   def remove_at(index)
     return nil if @head == nil
     current = @head
+    if index == 0
+      @size -= 1
+      #new_head = current.next_node
+      @head = current.next_node
+      return
+    end
   end
 
   def insert_at(value, index)
     new_node = Node.new(value)
     
     if @head == nil
-      puts "head === nil"
       @size += 1
       @head = @tail = new_node 
       return
     end
     if index == 0
-      puts "index == 0"
+      @size += 1
       old_head = @head
       @head = new_node
       @head.next_node = old_head
@@ -140,7 +145,8 @@ class LinkedList
   end
 
   def size
-    puts @size
+    
+    puts "size: #{@size}"
     return
   end
 
@@ -164,18 +170,15 @@ end
 
 test = LinkedList.new
 test.append(5)
+test.size
 test.append(8)
 test.prepend(9)
 test.prepend(60)
 test.to_s
 test.insert_at(100, 0)
+test.remove_at(0)
+test.size
 test.to_s
 test.pop
 test.to_s
 test.at(1)
-test.size
-test.head
-test.tail
-test.contains?(3)
-test.find(8)
-test.find(55)
