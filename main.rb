@@ -63,9 +63,21 @@ class LinkedList
     current = @head
     if index == 0
       @size -= 1
-      #new_head = current.next_node
       @head = current.next_node
       return
+    end
+    if index > 0
+      before_current_times = index - 1
+      before_current = @head
+      before_current_times.times do
+        before_current = current.next_node
+      end
+      index.times do
+        current = current.next_node
+      end
+      @size -= 1
+      after_current = current.next_node
+      before_current.next_node = after_current
     end
   end
 
@@ -146,7 +158,7 @@ class LinkedList
 
   def size
     
-    puts "size: #{@size}"
+    puts size
     return
   end
 
@@ -176,7 +188,8 @@ test.prepend(9)
 test.prepend(60)
 test.to_s
 test.insert_at(100, 0)
-test.remove_at(0)
+test.remove_at(2)
+
 test.size
 test.to_s
 test.pop
