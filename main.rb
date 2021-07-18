@@ -60,11 +60,22 @@ class LinkedList
 
   def insert_at(value, index)
     new_node = Node.new(value)
-    if @head == nil
-      @head = @tail = new_node
-    end
-    if index == 0
-      @head = new_node
+    @head = @tail = new_node if @head == nil
+    @head = new_node if index == 0
+    
+    if index > 0
+      before_current_times = index - 1
+      current = @head
+      before_current = @head
+      before_current_times.times do
+        before_current = current.next_node
+      end
+      index.times do
+        current = current.next_node
+      end
+      after_current = before_current.next_node
+      before_current.next_node = new_node
+      new_node.next_node = after_current
     end
   end
 
@@ -136,12 +147,13 @@ class Node
 end
 
 test = LinkedList.new
-test.add_at(5, 4)
+test.insert_at(5, 0)
 test.to_s
 test.append(5)
 test.append(8)
 test.prepend(9)
 test.prepend(60)
+test.insert_at(100, 2)
 test.pop
 test.to_s
 test.at(1)
